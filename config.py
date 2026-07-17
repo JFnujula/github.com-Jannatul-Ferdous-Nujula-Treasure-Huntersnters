@@ -1,29 +1,14 @@
-"""
-config.py
----------
-Central configuration for AI Treasure Hunters.
-
-Keeping every tunable constant in one place makes the game easy for
-students to modify (e.g. change grid size, tile costs, colors) without
-hunting through gameplay code.
-"""
-
 from pathlib import Path
 from enum import Enum, auto
 
-
-# ---------------------------------------------------------------------------
 # Paths
-# ---------------------------------------------------------------------------
 PROJECT_ROOT = Path(__file__).parent
 ASSETS_DIR = PROJECT_ROOT / "assets"
 SAVES_DIR = PROJECT_ROOT / "saves"
 SAVES_DIR.mkdir(exist_ok=True)
 
 
-# ---------------------------------------------------------------------------
 # Difficulty -> grid size
-# ---------------------------------------------------------------------------
 class Difficulty(Enum):
     EASY = auto()
     MEDIUM = auto()
@@ -44,9 +29,7 @@ SEARCH_DEPTH = {
 }
 
 
-# ---------------------------------------------------------------------------
 # Terrain costs (used by UCS / A* / Q-learning reward shaping)
-# ---------------------------------------------------------------------------
 class TerrainType(Enum):
     GRASS = "grass"
     MUD = "mud"
@@ -69,22 +52,16 @@ TERRAIN_WALKABLE = {
 }
 
 
-# ---------------------------------------------------------------------------
 # Scoring
-# ---------------------------------------------------------------------------
 TREASURE_BASE_VALUE = 50
 TRAP_PENALTY = -20
 POWERUP_BONUS = 10
-STRATEGIC_BONUS = 15  # e.g. blocking opponent from a treasure
+STRATEGIC_BONUS = 15
 
-# ---------------------------------------------------------------------------
 # Turn / game limits
-# ---------------------------------------------------------------------------
 MAX_TURNS = 200
 
-# ---------------------------------------------------------------------------
 # Rendering (Pygame)
-# ---------------------------------------------------------------------------
 TILE_PIXELS = 40
 FPS = 60
 

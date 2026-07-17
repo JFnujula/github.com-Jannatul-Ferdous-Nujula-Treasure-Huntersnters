@@ -1,13 +1,3 @@
-"""
-models/player.py
-----------------
-Base Player class shared by the human-controlled explorer and the
-AIPlayer (via inheritance). Handles position, score, inventory of
-active power-up effects, and the primitive actions every explorer can
-take. AIPlayer overrides `choose_action` to plug in search algorithms;
-the human player's `choose_action` is driven by UI input instead.
-"""
-
 from __future__ import annotations
 from typing import Tuple, Optional, List
 from dataclasses import dataclass, field
@@ -24,8 +14,6 @@ Coord = Tuple[int, int]
 
 @dataclass
 class ActionResult:
-    """Return value describing what happened after an action, so the
-    UI / logger can report it without re-deriving state changes."""
     success: bool
     message: str
     score_delta: int = 0
@@ -117,8 +105,6 @@ class Player:
                              score_delta=0)
 
     def block_bonus(self) -> None:
-        """Call when this player's obstacle successfully forces the
-        opponent to take a longer path (strategic achievement)."""
         self.score += STRATEGIC_BONUS
 
     def __repr__(self) -> str:  # pragma: no cover

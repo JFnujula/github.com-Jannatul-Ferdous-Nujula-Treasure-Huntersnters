@@ -1,11 +1,3 @@
-"""
-models/board.py
-----------------
-The Board owns the 2D grid of Tile objects and is responsible for maze
-generation, placing treasures/traps/doors/power-ups, and answering
-neighbor / walkability queries that every search algorithm relies on.
-"""
-
 from __future__ import annotations
 import random
 from typing import List, Tuple, Optional, Iterable
@@ -42,13 +34,7 @@ class Board:
         num_doors: int = 2,
         num_powerups: int = 3,
     ) -> None:
-        """Populate the board with terrain and entities.
 
-        A simple randomized approach is used rather than a full maze
-        carving algorithm (e.g. recursive backtracker) so that the
-        board stays mostly open — this keeps multiple paths available,
-        which matters for comparing search algorithms meaningfully.
-        """
         for r in range(self.rows):
             for c in range(self.cols):
                 roll = self._rng.random()
@@ -97,10 +83,6 @@ class Board:
             placed += 1
 
     def _ensure_connectivity(self) -> None:
-        """Guarantee at least one walkable path exists from each start
-        corner to every treasure using a flood fill; carve grass tiles
-        if unreachable pockets are found. This prevents 'unsolvable'
-        boards from randomly killing the game."""
         from collections import deque
 
         def reachable_from(start: Coord) -> set:
@@ -136,9 +118,7 @@ class Board:
             if self.grid[r][c].terrain == TerrainType.WALL:
                 self.grid[r][c].terrain = TerrainType.GRASS
 
-    # ------------------------------------------------------------------
     # Queries used heavily by AI search algorithms
-    # ------------------------------------------------------------------
     def get_tile(self, row: int, col: int) -> Tile:
         return self.grid[row][col]
 

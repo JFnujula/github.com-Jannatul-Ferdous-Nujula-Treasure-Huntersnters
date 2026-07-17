@@ -1,12 +1,3 @@
-"""
-ai/bfs.py
----------
-Breadth-First Search: finds the path with the fewest number of moves
-(ignores terrain cost — treats every walkable tile as cost 1). Good
-for "nearest treasure by step count" queries and as a simple baseline
-students can compare against UCS/A* once terrain costs are introduced.
-"""
-
 from __future__ import annotations
 from collections import deque
 from typing import Tuple

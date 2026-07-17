@@ -1,17 +1,3 @@
-"""
-ai/astar.py
------------
-A* Search: f(n) = g(n) + h(n).
-
-g(n) uses real terrain cost (grass=1, mud=3, water=4) via
-board.get_tile(*coord).cost, and h(n) is a selectable admissible
-heuristic (Manhattan or Euclidean distance) so the algorithm never
-overestimates true remaining cost and stays optimal.
-
-The visualizer panel reads `expanded_nodes`, `path`, `cost`, and
-`time_seconds` off the returned SearchResult.
-"""
-
 from __future__ import annotations
 import heapq
 import math

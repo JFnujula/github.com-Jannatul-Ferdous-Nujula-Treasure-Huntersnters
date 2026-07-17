@@ -1,12 +1,3 @@
-"""
-models/door.py
---------------
-Locked door. Blocks movement until a player spends an "open door"
-action on it. Doors are a clean example of state that changes the
-walkability of a tile mid-game, which search algorithms must account
-for by re-planning rather than caching paths forever.
-"""
-
 from __future__ import annotations
 from dataclasses import dataclass
 

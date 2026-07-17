@@ -1,27 +1,3 @@
-"""
-main.py
--------
-Phase 1 entry point: a playable Pygame rendering of the core game
-loop (board, human movement via arrow keys, AI turn via A*/BFS
-chasing the nearest treasure). This is intentionally the *minimal*
-runnable slice — the PySide6 menu/dashboard shell, Minimax/Alpha-Beta,
-Bayesian reasoning, Q-learning, and ANN modules layer on top of this
-same Game/Board/Player core in later phases without needing to change
-it.
-
-Controls
---------
-Arrow keys : move the human player
-D          : place a temporary obstacle one tile in front (down)
-SPACE      : let the AI take its turn immediately (auto-plays otherwise)
-R          : restart with a new random board
-ESC / close window : quit
-
-Run:
-    pip install -r requirements.txt
-    python main.py
-"""
-
 from __future__ import annotations
 import sys
 
@@ -58,9 +34,9 @@ class GameApp:
         self.ai_move_delay_ms = 350
         self._ai_timer = 0
 
-    # ------------------------------------------------------------------
+    # -----------------------------------
     # Input handling
-    # ------------------------------------------------------------------
+    # ---------------------------------------
     def handle_input(self, event: pygame.event.Event) -> None:
         if event.type != pygame.KEYDOWN:
             return
@@ -86,9 +62,9 @@ class GameApp:
         if target is not None:
             self.game.human_action("move", target=target)
 
-    # ------------------------------------------------------------------
+    # -------------------------
     # Update
-    # ------------------------------------------------------------------
+    # --------------------------------------
     def update(self, dt_ms: int) -> None:
         if self.game.game_over:
             return
@@ -98,9 +74,9 @@ class GameApp:
                 self._ai_timer = 0
                 self.game.ai_take_turn()
 
-    # ------------------------------------------------------------------
+    # --------------------------------
     # Rendering
-    # ------------------------------------------------------------------
+    # ---------------------------------------
     def draw_board(self) -> None:
         board = self.game.board
         for r in range(board.rows):
@@ -194,7 +170,7 @@ class GameApp:
         self.draw_sidebar()
         pygame.display.flip()
 
-    # ------------------------------------------------------------------
+    # ----------------------------
     # Main loop
     # ------------------------------------------------------------------
     def run(self) -> None:

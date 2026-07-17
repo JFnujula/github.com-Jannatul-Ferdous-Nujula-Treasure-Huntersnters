@@ -1,9 +1,3 @@
-"""
-models/treasure.py
--------------------
-Treasure entity. Collecting it awards its value to the player's score.
-"""
-
 from __future__ import annotations
 from dataclasses import dataclass
 

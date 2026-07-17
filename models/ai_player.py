@@ -1,18 +1,3 @@
-"""
-models/ai_player.py
---------------------
-AIPlayer extends Player (inheritance) and overrides decision-making
-with actual search algorithms instead of user input (polymorphism:
-Game treats Player and AIPlayer identically via `choose_action`).
-
-Phase 1 behavior: chase the nearest reachable treasure using A*
-(falls back to BFS if no heuristic advantage is needed). Later phases
-plug in Minimax/Alpha-Beta for blocking/defensive play, Bayesian
-reasoning for opponent-intention estimates, and Q-learning/ANN for
-learned behavior — all pluggable via the `strategy` attribute so the
-core loop here doesn't have to change.
-"""
-
 from __future__ import annotations
 from typing import Optional, Tuple, List
 

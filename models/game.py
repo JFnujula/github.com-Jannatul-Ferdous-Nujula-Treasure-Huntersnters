@@ -1,12 +1,3 @@
-"""
-models/game.py
---------------
-The Game class ties Board + Player + AIPlayer together into a single
-turn-based loop. It knows nothing about rendering (Pygame/PySide6) —
-the UI layer calls into Game's public methods and reads its state,
-keeping presentation and game logic cleanly separated.
-"""
-
 from __future__ import annotations
 from typing import Optional, List
 from dataclasses import dataclass, field
@@ -33,9 +24,6 @@ class Game:
         self.winner: Optional[str] = None
         self.log: List[str] = []
 
-    # ------------------------------------------------------------------
-    # Turn management
-    # ------------------------------------------------------------------
     def human_action(self, action: str, **kwargs) -> ActionResult:
         """Dispatch a human action by name. `action` in
         {'move', 'open_door', 'place_obstacle'}."""

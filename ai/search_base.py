@@ -1,18 +1,3 @@
-"""
-ai/search_base.py
-------------------
-Abstract base class for all pathfinding search algorithms (BFS, DFS,
-UCS, A*, DLS). Defining a shared interface lets the UI's algorithm
-selector and visualizer treat every algorithm polymorphically:
-
-    algo: SearchAlgorithm = ALGORITHM_REGISTRY[name]()
-    result = algo.search(board, start, goal)
-
-Subclasses must implement `search` and return a SearchResult so the
-visualizer panel can display expanded nodes, path, and cost/time in a
-uniform way regardless of which algorithm ran.
-"""
-
 from __future__ import annotations
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
